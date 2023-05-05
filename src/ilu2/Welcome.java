@@ -45,11 +45,12 @@ public class Welcome {
 			output.append(listnom[i].substring(0,1).toUpperCase()+listnom[i].substring(1)+", ");
 			}
 		}
-		output=traitementvirgule(output);
+		
+		output=ajoutAnd(traitementvirgule(output), true);
 		
 		if (!nomMaj.isEmpty()) {
 			nomMaj.insert(0, ". AND HELLO ");
-			nomMaj=traitementvirgule(nomMaj);
+			nomMaj=ajoutAnd(traitementvirgule(nomMaj), false);
 			nomMaj.append(" !");
 			output.append(nomMaj);
 		}
@@ -61,6 +62,20 @@ public class Welcome {
 		input.deleteCharAt(input.lastIndexOf(","));
 		input.deleteCharAt(input.lastIndexOf(" "));
 		return input;
+		
+	}
+	
+	private static StringBuilder ajoutAnd(StringBuilder input,boolean min) {
+		int indice=input.lastIndexOf(",");
+		if(indice!=-1) {
+		if(min) {
+			return input.replace(indice, indice+1, " and");
+		}else {
+			return input.replace(indice, indice+1, " AND");
+		}
+		}else {
+			return input;
+		}
 		
 	}
 }

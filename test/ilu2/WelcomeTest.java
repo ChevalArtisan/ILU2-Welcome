@@ -29,15 +29,16 @@ class WelcomeTest {
 	
 	@Test 
 	void testHelloBobAndCo(){
-		assertEquals(Welcome.welcome("bob,bobi"), "Hello, Bob, Bobi");
-		assertEquals(Welcome.welcome("Charles,Georges,Valery,francois,jacques,nicolas,francois,emmanuel"), "Hello, Charles, Georges, Valery, Francois, Jacques, Nicolas, Francois, Emmanuel" );
+		assertEquals(Welcome.welcome("bob,bobi"), "Hello, Bob and Bobi");
+		assertEquals(Welcome.welcome("Charles,Georges,Valery,francois,jacques,nicolas,francois,emmanuel"), "Hello, Charles, Georges, Valery, Francois, Jacques, Nicolas, Francois and Emmanuel" );
 
 	}
 	@Test
 	void testHelloBobAndMinMaj() {
 		assertEquals(Welcome.welcome("bob,SOPHIE"), "Hello, Bob. AND HELLO SOPHIE !");
-		assertEquals(Welcome.welcome("ERNEST,bob,SOPHIE"), "Hello, Bob. AND HELLO ERNEST, SOPHIE !");
-		assertEquals(Welcome.welcome("hoho,HUHU,hihi"), "Hello, Hoho, Hihi. AND HELLO HUHU !");
+		assertEquals(Welcome.welcome("ERNEST,bob,SOPHIE"), "Hello, Bob. AND HELLO ERNEST AND SOPHIE !");
+		assertEquals(Welcome.welcome("hoho,HUHU,hihi"), "Hello, Hoho and Hihi. AND HELLO HUHU !");
+		assertEquals(Welcome.welcome("hoho,HUHU,hihi,HAHA"), "Hello, Hoho and Hihi. AND HELLO HUHU AND HAHA !");
 
 	}
 
