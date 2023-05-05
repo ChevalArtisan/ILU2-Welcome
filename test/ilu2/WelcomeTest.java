@@ -26,5 +26,10 @@ class WelcomeTest {
 	void testHELLOBOB() {
 		assertEquals(Welcome.welcome("BOB"), "HELLO, BOB");
 	}
+	
+	@Test 
+	void testHelloBobAndCo(){
+		assertEquals(Welcome.welcome("bob,bobi"), "Hello, Bob, Bobi");
+	}
 
 }
