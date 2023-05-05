@@ -1,7 +1,10 @@
 package ilu2;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Welcome {
 	
@@ -40,11 +43,12 @@ public class Welcome {
 		String[] listnom=input.split(",");
 		for (int i = 0; i < listnom.length; i++) {
 			if(Objects.equals(listnom[i], listnom[i].toUpperCase())) {
-				nomMaj.append(listnom[i]+", ");
+				nomMaj.append(listnom[i].trim()+", ");
 			}else {
-			output.append(listnom[i].substring(0,1).toUpperCase()+listnom[i].substring(1)+", ");
+			output.append(listnom[i].trim().substring(0,1).toUpperCase()+listnom[i].trim().substring(1)+", ");
 			}
 		}
+		
 		
 		output=ajoutAnd(traitementvirgule(output), true);
 		
@@ -56,7 +60,8 @@ public class Welcome {
 		}
 
 		return ("Hello, "+output.toString());
-	} 
+	}
+	
 	
 	private static StringBuilder traitementvirgule(StringBuilder input) {
 		input.deleteCharAt(input.lastIndexOf(","));
@@ -78,4 +83,6 @@ public class Welcome {
 		}
 		
 	}
-}
+	
+	}
+	

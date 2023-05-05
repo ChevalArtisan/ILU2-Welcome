@@ -41,5 +41,12 @@ class WelcomeTest {
 		assertEquals(Welcome.welcome("hoho,HUHU,hihi,HAHA"), "Hello, Hoho and Hihi. AND HELLO HUHU AND HAHA !");
 
 	}
+	@Test
+	void testHelloBobandCoTrim() {
+		assertEquals(Welcome.welcome("bob         ,bobi         "), "Hello, Bob and Bobi");
+		assertEquals(Welcome.welcome("bob         ,bobi         ,HAAAAAAAAA              "), "Hello, Bob and Bobi. AND HELLO HAAAAAAAAA !");
 
+	}
+	
 }
+
