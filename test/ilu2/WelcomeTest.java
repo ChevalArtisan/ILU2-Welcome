@@ -33,5 +33,12 @@ class WelcomeTest {
 		assertEquals(Welcome.welcome("Charles,Georges,Valery,francois,jacques,nicolas,francois,emmanuel"), "Hello, Charles, Georges, Valery, Francois, Jacques, Nicolas, Francois, Emmanuel" );
 
 	}
+	@Test
+	void testHelloBobAndMinMaj() {
+		assertEquals(Welcome.welcome("bob,SOPHIE"), "Hello, Bob. AND HELLO SOPHIE !");
+		assertEquals(Welcome.welcome("ERNEST,bob,SOPHIE"), "Hello, Bob. AND HELLO ERNEST, SOPHIE !");
+		assertEquals(Welcome.welcome("hoho,HUHU,hihi"), "Hello, Hoho, Hihi. AND HELLO HUHU !");
+
+	}
 
 }

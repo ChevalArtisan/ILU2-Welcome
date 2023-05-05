@@ -17,6 +17,8 @@ public class Welcome {
 		}
 		return output.toString();
 	}
+	
+	
 	private static String welcomeSolo(String input) {
 		StringBuilder output= new StringBuilder();
 
@@ -34,13 +36,31 @@ public class Welcome {
 
 	private static String welcomeMultiple(String input) {
 		StringBuilder output= new StringBuilder();
+		StringBuilder nomMaj=new StringBuilder();
 		String[] listnom=input.split(",");
-		for (int i = 0; i < listnom.length-1; i++) {
+		for (int i = 0; i < listnom.length; i++) {
+			if(Objects.equals(listnom[i], listnom[i].toUpperCase())) {
+				nomMaj.append(listnom[i]+", ");
+			}else {
 			output.append(listnom[i].substring(0,1).toUpperCase()+listnom[i].substring(1)+", ");
+			}
 		}
-		output.append(listnom[listnom.length-1].substring(0,1).toUpperCase()+listnom[listnom.length-1].substring(1));
+		output=traitementvirgule(output);
 		
+		if (!nomMaj.isEmpty()) {
+			nomMaj.insert(0, ". AND HELLO ");
+			nomMaj=traitementvirgule(nomMaj);
+			nomMaj.append(" !");
+			output.append(nomMaj);
+		}
+
 		return ("Hello, "+output.toString());
 	} 
 	
+	private static StringBuilder traitementvirgule(StringBuilder input) {
+		input.deleteCharAt(input.lastIndexOf(","));
+		input.deleteCharAt(input.lastIndexOf(" "));
+		return input;
+		
+	}
 }
